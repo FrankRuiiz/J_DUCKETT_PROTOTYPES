@@ -7,7 +7,31 @@ function initmap() {
     var mapOptions = {
         center: new google.maps.LatLng(40.782710, -73.965310),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        zoom: 13
+        zoom: 13,
+        styles: [ // The styles property is an array of objects
+            {
+                stylers: [
+                    { hue: '#00ff6f' }, // styles overall map colors
+                    { saturation: -50 } // styles overall map saturation
+                ]
+            },
+            {
+                featureType: 'road', // road features
+                elementType: 'geometry', // their geometry or 'lines'
+                stylers: [
+                    { lightness: 100 }, // lightness of roads
+                    { visibility: 'simplified' } // level of road detail
+                ]
+            },
+            {
+                featureType: 'transit', // public transportation features
+                elementType: 'geometry', // their geometry or 'lines
+                stylers: [
+                    { hue: '#ff6600' },  // color of public transport
+                    { saturation: +80 } // saturation of public transport
+                ]
+            }
+        ]
     };
     var venueMap;
     // Map() draws a map on the element with id 'map'
