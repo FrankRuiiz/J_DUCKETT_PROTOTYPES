@@ -36,6 +36,22 @@ function initmap() {
     var venueMap;
     // Map() draws a map on the element with id 'map'
     venueMap = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    // puts new lat and long coor in var pin location
+    var pinLocation = new google.maps.LatLng(40.782710, -73.965310);
+    // Creates a new marker image with settings
+    var pinIcon = new google.maps.MarkerImage(
+        "map-marker-icon.png", // image from web
+        null, // size is determined at runtime 
+        null, // origin is 0,0 by default
+        null, // anchor is bottom center of scaled image by default
+        new google.maps.Size(50, 50) // sets image size to your specification
+    );
+    var startPosition = new google.maps.Marker({
+        position: pinLocation, // set to var pinLocation configured above
+        map: venueMap, // set to our map
+        icon: pinIcon // sets icon to var pinIcon configured above 
+    });
 }
 
 function loadScript() {
