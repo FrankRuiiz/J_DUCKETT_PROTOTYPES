@@ -1,6 +1,6 @@
 var request;                            // Latest image to be requested
 var $current;                           // Image currently being shown
-var casche = {};                        // Cache object
+var cache = {};                        // Cache object
 var $frame = $('#photo-viewer');        // Container for display image
 var $thumbs = $('.thumb');              // Container for thumbnail image
 
@@ -36,12 +36,36 @@ $(document).on('click', '.thumb', function(e) {  // When a thumbnail is clicked 
             crossfade(cache[src].$img);         // Call crossfade() function
         }
     }
-    else {
-        $img = $('<img>');
-        cache[src] = {
-            $img: $img,
-            isLoading: true
-        }
+    else {                               // Otherwise it is not in cache
+        $img = $('<img>');               // Store empty image element in $img
+        cache[src] = {                   // Store this image in cache
+            $img: $img,                  // Add the path to the image
+            isLoading: true              // Set isLoading property to true
+        };
+
+        // Next few lines will run when image has loaded but are prepared first
+        $img.on('load', function() {     // When image has loaded
+            $img.hide();                 // Hide it
+
+            // Remove is-loading class from frame and append new image to it
+            $frame.removeClass('is-loading').append($img);
+            cache[src].isLoading = false;
+
+            // If still most recently requested image then
+            if (request === src) {
+                crossfade($img);        // call crossfade function
+            }                           // solves asynchronous oading issue
+        });
+
+        $frame.addClass('is-loading');   // Add is-loading class to frame
+
+
+        $img.attr({
+           'src': src,
+            'alt': this.title || ''
+        });
     }
 
 });
+
+$('.thumb').eq(0).click();
