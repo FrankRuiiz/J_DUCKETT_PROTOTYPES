@@ -5,7 +5,7 @@ var $frame = $('#photo-viewer');        // Container for display image
 var $thumbs = $('.thumb');              // Container for thumbnail image
 
 function crossfade($img) {              // Function to fade between images
-                                        // New image is passed in as a parameter
+    console.log($img);                                    // New image is passed in as a parameter
     if ($current) {                     // If there is currently an image showing
         $current.stop().fadeOut('slow'); // Stop the animation and fade out
     }
@@ -15,7 +15,7 @@ function crossfade($img) {              // Function to fade between images
         marginTop: -$img.height() / 2   // Negative margin of half image's height
     });
     
-    $img.stop().fadeTo('slow, 1');      // Stop animation on new image & fade in
+    $img.stop().fadeTo('slow', 1);      // Stop animation on new image & fade in
     
     $current = $img;                    // New image becomes the current image
 }

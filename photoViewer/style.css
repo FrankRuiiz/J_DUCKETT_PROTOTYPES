@@ -1,7 +1,8 @@
 #photo-viewer {
     position: relative;
     height: 300px;
-    overflow: hidden
+    overflow: hidden;
+    #background-color: green;
 }
 
 #photo-viewer.is-loading:after {
