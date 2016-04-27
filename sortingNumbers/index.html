@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorting Numbers</title>
+    <script>
+
+        // Some examples of compare functions
+
+        // Ascending Numerical Order
+
+        var prices  = [1,2, 125, 2, 19, 14];
+        prices.sort(function( a, b ) {  // to sort numbers in ascending order, you subtract the value of the second number b from the first number a.
+            return a - b;
+        });
+
+        console.log(prices);
+
+
+        // Descending Numerical Order
+
+        var prices2 = [1,2, 125, 2, 19, 14];
+        prices2.sort(function( a, b) {      // to order numbers in a descending order, you subtract the value of the first number a from the second number b
+           return b -a;
+        });
+
+        console.log(prices2);
+
+
+        // Random Order
+
+        var prices3 = [1,2, 125, 2, 19, 14];
+        prices3.sort(function() {      // This will randomly return a value between -1 and 1, creating a random order for the items
+            return 0.5 - Math.random();
+        });
+
+        console.log(prices3);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
