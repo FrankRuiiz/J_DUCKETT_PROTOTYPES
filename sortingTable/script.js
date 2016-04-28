@@ -14,11 +14,20 @@ var compare = {             // Declare a compare object
         }
     },
     
-    duration: function(a, b) {
+    duration: function(a, b) {  // add method duration
+        a = a.split(':');       // split the time at the colon
+        b = b.split(':');       // same 
         
+        a = Number(a[0]) * 60 + Number(a[1]);   // convert the time to seconds
+        b = Number(a[0]) * 60 + Number(a[1]);   // same
+        
+        return a- b;  // return a - b
     },
     
-    date: function() {
+    date: function() {      // add a method called date 
+        a = new Date(a);    // new date object to hold the date     
+        b = new Date(b);    // new date object to hold the date 
         
+        return a - b;       // return a - b
     }
 };
