@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sorting Numbers</title>
+    <title>Sorting</title>
     <script>
 
-        // Some examples of compare functions
+        // Some examples of compare functions  sorting numbers
 
         // Ascending Numerical Order
 
@@ -35,6 +35,28 @@
         });
 
         console.log(prices3);
+
+
+
+
+        // Some examples of compare functions  sorting dates
+
+        var holidays = [    // if the dates are held as strings, the compare function needs to create a date object
+            '2014-12-25',
+            '2014-01-01',
+            '2014-07-28',
+            '2014-11-28'
+        ];
+
+        holidays.sort(function(a, b) {
+            var dateA = new Date(a);    // once they have been converted into a date object, js stores the date as the number of milliseconds
+            var dateB = new Date(b);    // since the 1st January 1970
+
+            return dateA - dateB;        // the dates can now be compared
+        });
+
+        console.log(holidays);
+
 
     </script>
 </head>
