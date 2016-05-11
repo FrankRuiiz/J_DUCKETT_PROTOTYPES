@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submitting Forms</title>
+
+</head>
+<body>
+
+    <form id="login" action="/login" method="post">
+        <div class="two-thirds column" id="main">
+            <fieldset>
+                <legend>Login</legend>
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+
+                <label for="pwd">Password:</label>
+                <input type="password" id="pwd" name="pwd">
+
+                <input type="submit" value="Login">
+            </fieldset>
+        </div>
+    </form>
+
+
+    <script src="utilities.js"></script>
+    <script src="submit-event.js"></script>
+</body>
+</html>
